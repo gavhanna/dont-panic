@@ -1,24 +1,11 @@
-# README
+Server Side Web Technologies Class Project
+===
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO: add some info here
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Installation
+* Clone this repo
+* CD into directory
+* run `bundle install`
+* run `rails s -b $IP -p $PORT`
+* Click the `Preview` tab and select `Preview running application`
