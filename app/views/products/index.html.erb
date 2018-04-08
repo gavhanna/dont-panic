@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<div class="product-container">
+  
+    <% @products.each do |product| %>
+    <div class="product-card">
+        <%= link_to (image_tag product.image_url, :class => "product-image"), product %>
+        
+        <h2><%= product.name %></h2>
+        <p>Category: <%= product.category %></p>
+        <p>Availability: <%= product.availability %></p>
+        <p>Price: <%= number_to_currency(product.price, :unit => "€") %></p>
+        <p>Category Number: <%= product.catNo %></p>
+        <p><%= product.description %></p>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </div>
+
+    <% end %>
+</div>
+
+
+<%= link_to 'New Product', new_product_path %>
