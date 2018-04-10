@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+  <h1>Products</h1>
  <div id="productContainer">
   
-  <h1>Products</h1>
      
       <% @products.each do |product| %>
       <div class="producthols">
-       <h1><%= product.title %></h1>
+        <h1><%= product.title %></h1>
        
-       <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
-        <p><%= product.description %></p>
-       <p>Price <%= number_to_currency(product.price, :unit => "€") %>
-       <br>
+        <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
+        <p><%= truncate(product.description, length: 50) %></p>
+        <p>Price <%= number_to_currency(product.price, :unit => "€") %>
+        <br>
         Category: <%= product.category %>
         <br>
         </p>
        
-       <p>
-         <%= link_to 'Show',  product, :class => "button", :role => "button" %>
-         <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
-         <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
-       </p>
+        <p>
+          <%= link_to 'Show',  product, :class => "button", :role => "button" %>
+          <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
+          <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+        </p>
         
       </div>
    
+    <% end %>
       
 </div>
 
 <br>
 
 
-    <% end %>
 
 <%= link_to 'New Product',  new_product_path, :class => "button", :role => "button" %>
 
