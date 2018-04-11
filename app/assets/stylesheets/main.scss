@@ -172,6 +172,7 @@ a {
     }
     .main-container {
         margin: 40px auto;
+        width: 426px;
     }
     .header-container {
         flex-direction: row;
@@ -208,6 +209,20 @@ a {
     .title {
         width: 100vw;
     }
+}
+
+@media screen and (max-width: 600px) {
+    .productContainer {
+        width: 100vw;
+    }
+    .producthols {
+        width: 95vw;
+    }
+    .main-container {
+        margin: 40px auto;
+        width: 90vw;
+    }
+    
 }
 
 .auth-wrapper {
