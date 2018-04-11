@@ -9,7 +9,7 @@
         <h1><%= product.title %></h1>
        
         <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
-        <p><%= truncate(product.description, length: 50) %></p>
+        <p><%= truncate(product.description, length: 150) %></p>
         <p>Price <%= number_to_currency(product.price, :unit => "€") %>
         <br>
         Category: <%= product.category %>
