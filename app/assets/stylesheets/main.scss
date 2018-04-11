@@ -143,6 +143,11 @@ a {
 
 .main-container {
     margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100vw - 200px);
+    min-height: 100vh;
 }
 
 // Mobile menu button
@@ -199,3 +204,8 @@ a {
     }
 }
 
+.auth-wrapper {
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: -1px 7px 31px -8px rgba(0,0,0,0.75);
+}
