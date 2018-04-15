@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-  <h1>Products</h1>
+  <h1 style="color:#333;">Products</h1>
  <div id="productContainer">
   
      
@@ -9,7 +9,7 @@
         <h1><%= product.title %></h1>
        
         <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
-        <p><%= truncate(product.description, length: 150) %></p>
+        <p><%= truncate(product.description, length: 150) %> <%= link_to '(Read More)',  product %></p>
         <p>Price <%= number_to_currency(product.price, :unit => "€") %>
         <br>
         Category: <%= product.category %>
