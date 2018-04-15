@@ -190,6 +190,28 @@ a {
     align-self: flex-start;
 }
 
+.title-container {
+    width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+}
+
+.about {
+    width: 100%;
+    max-width: 95%;
+    padding: 10px;
+}
+
+.about-container {
+    display: flex;
+}
+
+.part1, .part2 {
+    width: 50%;
+    padding: 20px;
+}
+
 .main-container {
     margin-left: 200px;
     display: flex;
@@ -254,6 +276,14 @@ a {
     
     .product-desc-img {
         height: 200px; width: auto;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .part1, .part2 {
+        margin: 0 auto;
+        width: 90%;
     }
 }
 
