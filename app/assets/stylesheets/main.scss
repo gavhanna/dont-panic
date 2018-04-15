@@ -211,6 +211,31 @@ a {
   border-radius: 50%;
   cursor: pointer;
 }
+
+// Cart styles
+
+.cart-container {
+    color: #333;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+}
+
+.cart-item-container {
+    display: flex;
+    width: 800px;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: -1px 7px 31px -8px rgba(0,0,0,0.75);
+}
+
+.cart-item-element {
+    dispaly: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% / 6);
+}
 // Media Queries
 
 @media screen and (max-width: 1100px) {

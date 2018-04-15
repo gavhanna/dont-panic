@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<div class="cart-container">
+    
+    
+    <% if @cart.length == 0 %>
+        <h2>Cart is currently empty</h2>
+        <p>Why not <%= link_to "add something?", products_path, :style => "text-decoration: underline;" %> :)</p>
+    <% else %>
+    <h1>Shopping Cart</h1>
+    
+    
+        <% total = 0 %>
+        <% @cart.each do |id, quantity| %>
+        <div class="cart-item-container">
+        
+            <% product = Product.find_by_id(id) %>
+            <div class="cart-image-container">
+                <%= link_to (image_tag product.image_url, :style => "height: auto;width: 40px;"), product %>
+            </div>
+            <div class="cart-item-element">
+                <%= link_to product.title, product %>
+            </div>
+            <div class="cart-item-element">
+                <a href="/cart/remove/<%= product.id %>" class="button">Remove </a>
+            </div>
+            <div class="cart-item-element">
+                <span>
+                    Price: <%= number_to_currency(product.price, :unit => "€")  %>
+                </span>
+            </div>
+            <div class="cart-item-element">
+                <span>
+                    Qty: <%= quantity %>
+                </span>
+            </div>
+            <div class="cart-item-element">
+                <span>
+                    Total: <%= number_to_currency(quantity * product.price, :unit => "€") %>
+                </span>
+            </div>
+
+        
+        </div>
+        <% total += quantity * product.price %>
+        <% end %>
+        
+        <div class="cart-container">
+            <div class="cart-item-container">
+                <div class="cart-item-element">
+                    Grand total: <%= number_to_currency(total, :unit => "€") %>
+                </div>
+                <div class="cart-item-element">
+                    <a href="/cart/clear" class="button">Clear Cart</a>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    
+</div>
