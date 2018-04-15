@@ -15,7 +15,7 @@
         <div class="cart-item-container">
         
             <% product = Product.find_by_id(id) %>
-            <div class="cart-image-container">
+            <div class="cart-item-element cart-image-container">
                 <%= link_to (image_tag product.image_url, :style => "height: auto;width: 40px;"), product %>
             </div>
             <div class="cart-item-element">
