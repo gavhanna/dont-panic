@@ -24,6 +24,7 @@ body {
     background-image: image-url('bg2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
 }
 
 .title-container> h1 {
@@ -219,6 +220,7 @@ a {
     justify-content: center;
     width: calc(100vw - 200px);
     min-height: 100vh;
+    color: #333;
 }
 
 // Mobile menu button
