@@ -16,5 +16,22 @@
         <li class="nav-item"><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
     <% end %>
     <li class="nav-item"><%= render 'layouts/search' %></li>
-    
+    <li class="nav-item">
+        <% if session[:cart] %>
+            <% cart = session[:cart] %>
+            <% total = 0 %> 
+            <% cart.each do |id, quantity| %>
+                <% product = Product.find_by_id(id) %>
+                <% total += quantity * product.price %>
+            <% end %>
+            
+            <a href="/cart">
+                <div class="mini-cart" style="color:white;">
+                    <p>Your Cart</p>
+                    <div>Items: <%= cart.length %></div>
+                    <div>Total: <%= number_to_currency(total, :unit => "€") %></div>
+                </div>
+            </a>
+        <% end %>
+    </li>
 </ul>
