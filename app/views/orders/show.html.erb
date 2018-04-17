@@ -27,6 +27,11 @@
  <% if !@orderitems %>
    <h1>NO ITEMS</h1>
  <% else %>
+ <tr>
+  <td>Created at</td>
+  <td>Title</td>
+  <td>Order ID</td>
+ </tr>
  <% @orderitems.each do |orderitem| %>
  <tr>
  <td><%= orderitem.created_at %></td>
