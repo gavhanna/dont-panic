@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <h1 style="color:#333;">Products</h1>
- <div id="productContainer">
+    <h1 style="color:#333;"><%= @catName %></h1>
+    <div id="productContainer">
   
-     
+    <% if @products.length == 0 %>
+        <h2>There are currently no products in this category</h2>
+    <% end %>
+
       <% @products.each do |product| %>
       <div class="producthols">
         <h1><%= product.title %></h1>
@@ -30,7 +33,3 @@
     <% end %>
       
 </div>
-
-
-
-

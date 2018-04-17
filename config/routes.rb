@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :categories
   get 'cart/index'
   
   get '/cart', to: 'cart#index'
   
   post '/search', to: 'products#search'
+  
+  get '/category/:title', to: 'static_pages#category'
 
   devise_for :users
   resources :products
