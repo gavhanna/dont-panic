@@ -21,7 +21,6 @@ class CartController < ApplicationController
   end
   
   
-  
   def clearCart
     session[:cart] = nil
     redirect_to :action => :index
@@ -43,4 +42,23 @@ class CartController < ApplicationController
       @cart = {}
     end
   end # end index
+  
+  
+  def createOrder
+    @user = User.find(current_user.id)
+    @order = @user.orders.build(:order_date => DateTime.now, :status => "Pending")
+    @order.save
+    
+    @cart = session[:cart] || {}
+    @cart.each do |id, quantity|
+      product = Product.find_by_id(id)
+      @orderitem = @order.orderitems.build(:item_id => product.id, :title => product.title, :description => product.description,
+                                            :quantity => quantity, :price => product.price)
+      @orderitem.save
+    end
+    
+    @orders = Order.all
+    @orderitems = Orderitem.where(order_id: Order.last)
+    session[:cart] = nil
+  end
 end

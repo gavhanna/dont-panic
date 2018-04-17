@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'orderitems/index'
+
+  get 'orderitems/show'
+
+  get 'orderitems/new'
+
+  get 'orderitems/edit'
+
+  resources :orders do
+    resources :orderitems
+  end
   resources :categories
   get 'cart/index'
   
@@ -8,7 +19,14 @@ Rails.application.routes.draw do
   
   get '/category/:title', to: 'static_pages#category'
 
-  devise_for :users
+  devise_for :users do
+    resources :orders
+  end
+  
+  get '/paid' => 'static_pages#paid'
+  
+  get '/checkout' => 'cart#createOrder'
+  
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

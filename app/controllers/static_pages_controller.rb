@@ -13,5 +13,15 @@ class StaticPagesController < ApplicationController
     @products = Product.where("category like ? ", catName)
   end
   
+  def createOrder
+    @orders = Order.all
+    
+  end
+  
+  def paid
+    flash[:notice] = 'Transaction Complete'
+    @order = Order.last
+    @order.update_attribute(:status , "Paid by User: #{current_user.email}")
+  end
   
 end

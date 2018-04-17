@@ -1,0 +1,53 @@
+<h2>Thanks</h2>
+<p>You have just placed an order <%= @orderReg %></p>
+
+
+<table id="customers">
+ <tr>
+
+ <% @orders.limit(1).order(id: :desc).each do |order| %>
+ <td>Order reference for the order you just placed: <%= order.id %></td>
+ <% end %>
+ </tr>
+</table>
+
+
+<table id="customers">
+ <% @total = 0 %>
+ <% @orderitems.each do |id,quantity| %>
+ <tr>
+ <% item = Orderitem.find_by_id(id) %>
+
+ <td><%= item.title %></td>
+ <td><%= item.quantity %></td>
+ <td><%=number_to_currency(item.price, :unit => "€")%></td>
+ <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
+ </tr>
+
+ <% timx = (item.quantity * item.price)%>
+
+
+ <% @total += timx %>
+
+ </tr>
+ <% end %>
+
+
+ <tr>
+
+ <td>Order Total: &euro; <%= @total %></td>
+ 
+ <% shipping = 42 %>
+ <% @overall = shipping + @total %>
+ </tr>
+ 
+    <tr>
+        <td>Shipping <%= number_to_currency(shipping, :unit => "€") %></td>
+    </tr>
+    <tr>
+        <td>You pay: <%= number_to_currency(@overall, :unit => "€") %></td>
+    </tr>
+    <tr>
+        <td><h2> <a href="/paid" class="button">Pay Now</a></h2></td>
+    </tr>
+</table>
