@@ -1,11 +1,11 @@
 <div id="itemsContainer">
 <p id="notice"><%= notice %></p>
 <h1>Order Details</h1>
-<table id="customers">
+<table id="customers" style="margin-bottom: 0;">
  <tr>
- <td>Order date:</td>
+ <td>Order Date</td>
  <td>Ordered By</td>
- <td>Order date:</td>
+ <td>Order Status</td>
  </tr>
 
  <tr>
@@ -15,12 +15,11 @@
 
  </tr>
 
- <tr>
- <td><%= link_to 'Edit', edit_order_path(@order), :class =>"button" %></td>
- <td><%= link_to 'Back', orders_path, :class =>"button" %></td>
-
- </tr>
  </table>
+ <%= link_to 'Edit', edit_order_path(@order), :class =>"button" %>
+ <%= link_to 'Back', orders_path, :class =>"button" %>
+
+ 
 <h2>Order Items</h2>
 <table id="customers">
  
@@ -45,7 +44,7 @@
  </table>
  <% end %>
 
+<%= link_to 'Edit', edit_order_path(@order), :class =>"button" %>
+<%= link_to 'Back', orders_path, :class =>"button" %>
  </div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
