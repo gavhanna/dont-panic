@@ -4,7 +4,7 @@
   <h2>You havn't ordered anything yet!</h2>
 <% else %>
 <h1>Orders</h1>
-<table>
+<table style="margin-bottom: 50px;">
   <thead>
     <tr>
       <th>Order date</th>
@@ -18,7 +18,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.order_date %></td>
-        <td><%= order.user %></td>
+        <td><%= @user.email %></td>
         <td><%= order.status %></td>
         <td><%= link_to 'Show', order, :class =>"button" %></td>
         <td><%= link_to 'Edit', edit_order_path(order), :class =>"button" %></td>
