@@ -17,15 +17,24 @@
         <li class="nav-item"><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
     <% end %>
     <li class="nav-item"><%= render 'layouts/search' %></li>
+    
+    <!--This parts here adds a little cart information box at the end of the navigation menu-->
+    <!--if there are items in the cart.-->
     <li class="nav-item">
         <% if session[:cart] %>
+        
+            <!--Here i get the cart session, and set a counter variable "total" to 0-->
             <% cart = session[:cart] %>
             <% total = 0 %> 
+            
+            <!--Here i do a loop through every item in the cart-->
+            <!--For each item, i basically add the total of each item, to the total variable above-->
             <% cart.each do |id, quantity| %>
                 <% product = Product.find_by_id(id) %>
                 <% total += quantity * product.price %>
             <% end %>
             
+            <!--Then here, i use that information to display the cart info in the site navigation-->
             <a href="/cart">
                 <div class="mini-cart" style="color:white;">
                     <p>Your Cart</p>
