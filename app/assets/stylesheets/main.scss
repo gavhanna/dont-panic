@@ -349,6 +349,7 @@ footer {
         margin: 40px auto;
         width: 426px;
         margin: 0;
+        z-index: -1;
     }
     .header-container {
         flex-direction: row;
@@ -401,6 +402,10 @@ footer {
     }
     .search-button {
         display: block;
+    }
+    
+    .header-container {
+        overflow-y: visible;
     }
     
     
