@@ -1,0 +1,71 @@
+<h1>User Profile</h1>
+<br>
+<h2>Hello, <%= @user.email %></h2>
+<br>
+<h2>User Info</h2>
+
+<table>
+    <tr>
+        <td>Sign in Count</td>
+        <td>Last Sign In</td>
+        <td>Created Account</td>
+        <td>Orders Made</td>
+        <td>Orders Completed</td>
+        <td>Orders Pending</td>
+        <td>Current items in cart</td>
+    </tr>
+    <tr>
+        <td>
+            <%= @user.sign_in_count  %> times
+        </td>
+        <td>
+            <%= @user.last_sign_in_at  %>
+        </td>
+        <td>
+            <%= @user.created_at  %>
+        </td>
+        <td>
+            <%= @user_orders.length %>
+        </td>
+        <td>
+            <%= @total_complete  %>
+        </td>
+        <td> 
+            <%= @total_pending %>
+        </td>
+        <td>
+            <%= @cart_count  %>
+        </td>
+    </tr>
+</table>
+
+
+
+<h2>Previous Orders</h2>
+<% if @user_orders.length == 0 %>
+  <h2>You havn't ordered anything yet!</h2>
+<% else %>
+<table style="margin-bottom: 50px;">
+  <thead>
+    <tr>
+      <th>Order date</th>
+      <th>User</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_orders.each do |order| %>
+      <tr>
+        <td><%= order.order_date %></td>
+        <td><%= @user.email %></td>
+        <td><%= order.status %></td>
+        <td><%= link_to 'Show', order, :class =>"button" %></td>
+        <td><%= link_to 'Edit', edit_order_path(order), :class =>"button" %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   
   get '/paid' => 'static_pages#paid'
   
+  get '/profile' => 'static_pages#profile'
+  
   get '/checkout' => 'cart#createOrder'
   
   resources :products

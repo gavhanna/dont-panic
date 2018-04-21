@@ -25,4 +25,21 @@ class StaticPagesController < ApplicationController
     @order.update_attribute(:status , "Paid by User: #{current_user.email}")
   end
   
+  def profile
+    @user = User.find_by_id(current_user.id)
+    @user_orders = Order.where(user_id: current_user.id)
+    @cart = session[:cart] || {}
+    @cart_count = @cart.length
+    
+    @total_complete = 0
+    @total_pending = 0
+      @user_orders.each do |order|
+        if order.status != "Pending"
+          @total_complete = @total_complete + 1
+        else
+          @total_pending = @total_pending + 1
+        end
+      end
+  end
+  
 end
