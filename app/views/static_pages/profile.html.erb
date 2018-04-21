@@ -1,7 +1,12 @@
 <h1>User Profile</h1>
 <br>
 <h2>Hello, <%= @user.email %></h2>
+<p>It's been <%= time_ago_in_words(@user.last_sign_in_at)%> since you last logged in, we were starting to miss you!</p>
 <br>
+<div>
+    
+    <%= link_to "Edit User Password or Email Address", edit_user_registration_path, :class => "button" %>
+</div>
 <h2>User Info</h2>
 
 <table>
@@ -19,10 +24,10 @@
             <%= @user.sign_in_count  %> times
         </td>
         <td>
-            <%= @user.last_sign_in_at  %>
+            <%= @user.last_sign_in_at.strftime("%A %B %d, %Y")  %>
         </td>
         <td>
-            <%= @user.created_at  %>
+            <%= @user.created_at.strftime("%A %B %d, %Y")  %>
         </td>
         <td>
             <%= @user_orders.length %>
