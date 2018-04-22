@@ -22,7 +22,7 @@
         <p>
           <a href="/cart/<%= product.id %>" class="button">Add to Cart</a>
           <%= link_to 'Show',  product, :class => "button", :role => "button" %>
-          <% if user_signed_in? %>
+          <% if current_user.try(:admin?) %>
             <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
             <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
           <% end %>
