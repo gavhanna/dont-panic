@@ -35,16 +35,16 @@ data = [
         image_url: "tea.JPG",
         price: 420,
         category: "Food and Drink"
+    }, # this comma is very important, as it distinguishes between objects
+    {
+        title: "Infinite Improbability Drive",
+        description: "Side effects of using the Infinite Improbability Drive include temporary (and sometimes permanent,) changes to environment and morphological structure, hallucinations, and the calling into being of large marine mammals. An incredible range of highly improbable things can happen. Known effects have included the creation, and spontaneous upending, of a million-gallon vat of custard, marrying Michael Saunders, the transformation of a pair of guided nuclear missiles into a sperm whale and a bowl of petunias, redesigning the interior of the Heart of Gold, turning Ford Prefect into a penguin, transforming the desert world of Kakrafoon into an incredibly habitable oasis during a Disaster Area concert, ridding the people of Kakrafoon of their telepathy during the same concert and allowing for the discovery of Magrathea by Zaphod Beeblebrox.",
+        image_url: "whale.JPG",
+        price: 42000,
+        category: "Devices"
     }
 ]
 
 data.each do |product|
     Product.create(product)
 end
-    
-    
-    # t.string "title"
-    # t.text "description"
-    # t.string "image_url"
-    # t.decimal "price"
-    # t.string "category"
