@@ -127,3 +127,31 @@ users = [
 users.each do |user|
     User.create(user)
 end
+
+categories = [
+    {
+        title: "Essentials",
+        description: "Things that you NEED need.",
+        image: "towel.JPG"
+    },
+    {
+        title: "Food and Drink",
+        description: "Delicious and Nutritious.",
+        image: "tea.JPG"
+    },
+    {
+        title: "Devices",
+        description: "Things that do... things.",
+        image: "marvin.JPG"
+    },
+    {
+        title: "Apparel",
+        description: "Fashionable, yet functional.",
+        image: "sensomatic.JPG"
+    }
+    
+]
+
+categories.each do |category|
+    Category.create(category)
+end
