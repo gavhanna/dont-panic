@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   
   get '/checkout' => 'cart#createOrder'
   
+  get '/admin' => 'static_pages#admin'
+  
+  get '/admin/:id' => 'static_pages#admin'
+  
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

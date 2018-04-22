@@ -42,4 +42,23 @@ class StaticPagesController < ApplicationController
       end
   end
   
+  def admin
+    if params[:id]
+      @user = User.find_by_id(params[:id])
+      
+      
+      if @user.admin
+        @user.admin = false
+        flash[:notice] = "Admin privelages removed for: #{@user.email}"
+      else
+        @user.admin = true
+        flash[:notice] = "Admin privelages granted for: #{@user.email}"
+      end
+      @user.save
+      redirect_to '/admin'
+    end
+    
+    @me = current_user
+    @users = User.all
+  end
 end

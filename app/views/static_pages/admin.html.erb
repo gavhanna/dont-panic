@@ -1,0 +1,27 @@
+<div style="background:white;">
+    <h1>Users</h1>
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>ID</td>
+            <td>Admin</td>
+            <td>Admin Privelages</td>
+        </tr>
+        <% @users.each do |user| %>
+            <% if user.id != current_user.id %>
+                <tr>
+                    <td><%= user.email %></td>
+                    <td><%= user.id %></td>
+                    <% if user.admin %>
+                        <td>Yes</td>
+                        <td><a class="button" style="width: 100px; background: tomato" href="/admin/<%= user.id %>">Remove</a></td>
+                    <% else %>
+                        <td>No</td>
+                        <td><a class="button" style="width: 100px" href="/admin/<%= user.id %>">Add</a></td>
+                    <% end %>
+                    
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+</div>
