@@ -89,7 +89,7 @@ data = [
         title: "Deep Thought",
         description: "Deep Thought is a supernatural-computer programmed to calculate the answer the Ultimate Question of Life, the Universe, and Everything. After seven and a half million years, it came up with the result of 42, but didn't know the question itself, so it commissioned the Earth to calculate that inquiry. Sadly, the Earth was destroyed just before it was going to give the question.",
         image_url: "deepthought.JPG",
-        price: 42424242424242.40,
+        price: 424242.42,
         category: "Essentials"
     },
     {
