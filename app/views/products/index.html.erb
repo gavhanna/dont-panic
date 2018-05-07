@@ -30,14 +30,15 @@
           </div>
         </div>
        
-        <p>
+        <div class="product-button-holder">
           <a href="/cart/<%= product.id %>" class="button"><i class="fas fa-cart-plus"></i> Add to Cart</a>
           <%= link_to '<i class="far fa-eye"></i> Show'.html_safe,  product, :class => "button", :role => "button" %>
           <% if current_user.try(:admin?) %>
-            <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe,  edit_product_path(product), :class => "button", :role => "button" %>
-            <%= link_to '<i class="fas fa-trash-alt"></i> Destroy'.html_safe,  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+            <%= link_to '<i class="far fa-edit"></i>'.html_safe,  edit_product_path(product), :class => "product-edit-button", :role => "button" %>
+            <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,  product, 
+                method: :delete, data: { confirm: 'Delete this product?' }, :class => "product-delete-button", :role => "button" %>
           <% end %>
-        </p>
+        </div>
         
       </div>
    
