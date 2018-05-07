@@ -13,18 +13,30 @@
        
         <%= link_to (image_tag product.image_url, :class => "productholsIm"), product %>
         <p><%= truncate(product.description, length: 150) %> <%= link_to '(Read More)',  product %></p>
-        <p>Price <%= number_to_currency(product.price, :unit => "€") %>
-        <br>
-        Category: <%= product.category %>
-        <br>
-        </p>
-       
+        <div class="product-info">
+          <div class="product-info-price">
+            <span>
+              Price
+            </span> 
+            <span>
+              <%= number_to_currency(product.price, :unit => "€") %>
+            </span>
+          </div>
+          <div class="product-info-category">
+            <span>
+              Category
+            </span>
+            <span>
+              <%= product.category %>
+            </span>
+          </div>
+        </div>
         <p>
-          <a href="/cart/<%= product.id %>" class="button">Add to Cart</a>
-          <%= link_to 'Show',  product, :class => "button", :role => "button" %>
+          <a href="/cart/<%= product.id %>" class="button"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+          <%= link_to '<i class="far fa-eye"></i> Show'.html_safe,  product, :class => "button", :role => "button" %>
           <% if current_user.try(:admin?) %>
-            <%= link_to 'Edit',  edit_product_path(product), :class => "button", :role => "button" %>
-            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+            <%= link_to '<i class="far fa-edit"></i> Edit'.html_safe,  edit_product_path(product), :class => "button", :role => "button" %>
+            <%= link_to '<i class="fas fa-trash-alt"></i> Destroy'.html_safe,  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
           <% end %>
         </p>
         
