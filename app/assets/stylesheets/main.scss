@@ -178,6 +178,7 @@ a {
     display: flex;
     justify-content: space-between;
     width: 100px;
+    margin: 0 auto;
     border: 1px solid transparent;
     transition: all .2s ease-in-out;
     &:hover {
